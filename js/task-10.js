@@ -17,10 +17,10 @@ const inputElem = document.querySelector("input");
 createButtonElem.addEventListener("click", createBox);
 destroyButtonElem.addEventListener("click", destroyBox);
 
-function createBox(amount) {
+function createBox(param) {
   let newArray = [];
-  amount = inputElem.value;
-  for (let i = 0; i < amount; i += 1) {
+  param = inputElem.value;
+  for (let i = 0; i < param; i += 1) {
     let size = 30 + i * 10;
 
     const divEl = document.createElement("div");
