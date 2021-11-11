@@ -15,11 +15,23 @@ const images = [
 
 const imageEl = document.querySelector(".gallery");
 
-const imageInsert = images.forEach(({ url, alt }) => {
-  imageEl.insertAdjacentHTML(
-    "beforeend",
-    `<li class = "galerry__item">
-  <img class = "galerry__img" src = "${url}" alt = "${alt}">
-  </li>`
-  );
-});
+// const imageInsert = images.forEach(({ url, alt }) => {
+//   imageEl.innerHTML += `<li class = "galerry__item"><img class = "galerry__img" src="${url}" alt="${alt}"></li>`;
+// });
+
+// const imageInsert = images.forEach(({ url, alt }) => {
+//   imageEl.insertAdjacentHTML(
+//     "beforeend",
+//     `<li class = "galerry__item">
+//   <img class = "galerry__img" src = "${url}" alt = "${alt}">
+//   </li>`
+//   );
+// });
+
+const imageInsert = images
+  .map((elem) => {
+    return `<li class="galerry__item"><img class="galerry__img" src="${elem.url}" alt="${elem.alt}"></li>`;
+  })
+  .join("");
+
+imageEl.insertAdjacentHTML("beforeend", imageInsert);
